@@ -31,4 +31,7 @@ Dataset is included directly in `data.py` or inline in the notebook.
 git clone https://github.com/username/turkish-text-classifier.git
 cd turkish-text-classifier
 pip install -r requirements.txt
-<img width="1873" height="1000" alt="resim" src="https://github.com/user-attachments/assets/6aaa3070-03f8-4d8f-9da2-076fff0b675e" />
+<div align="center">
+  <img src="demo.png" width="800"/>
+</div>
+
