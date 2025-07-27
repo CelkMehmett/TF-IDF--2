@@ -31,7 +31,8 @@ Dataset is included directly in `data.py` or inline in the notebook.
 git clone https://github.com/username/turkish-text-classifier.git
 cd turkish-text-classifier
 pip install -r requirements.txt
-<div align="center">
-  <img src="demo.png" width="800"/>
-</div>
+## 📸 Uygulama Ekran Görüntüsü
+
+![Streamlit Demo](demo.png)
+
 
