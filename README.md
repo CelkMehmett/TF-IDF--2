@@ -1,41 +1,108 @@
-# 🇹🇷 Turkish Text Classifier with TF-IDF and Scikit-learn
+# 🇹🇷 Turkish Text Classifier with TF‑IDF and Scikit‑learn
 
-A real-world Turkish text classification project using **TF-IDF**, **Naive Bayes**, and **GridSearchCV**, designed to classify short texts into three categories:
-- 🧠 Personal Development (`kişisel gelişim`)
-- 🏡 Daily Life (`günlük yaşam`)
-- 📢 Complaint/Request (`talep/şikayet`)
-
----
-
-## 🚀 Features
-
-- ✅ Custom Turkish stopword list  
-- ✅ TF-IDF vectorization with n-gram support  
-- ✅ Model training with Naive Bayes, Logistic Regression, and Decision Tree  
-- ✅ Automatic hyperparameter tuning using GridSearchCV  
-- ✅ Model saving and loading using `.pkl` files  
-- ✅ Ready for web interface integration with Streamlit  
+Bu proje, Türkçe kısa cümleleri üç sınıfa ayırmak üzere geliştirilmiş, **TF‑IDF** temelli bir metin sınıflandırma sistemidir.  
+Kapsamlı bir **doğal dil işleme (NLP)** süreci içerir ve **Naive Bayes**, **Logistic Regression**, **Karar Ağacı**, **GridSearchCV** gibi güçlü modeller ve araçlar içerir.  
+Ayrıca, kullanıcı dostu bir arayüz ile **Streamlit** üzerinden etkileşimli hale getirilmiştir.
 
 ---
 
-## 🧠 Dataset
+## 🎯 Hedeflenen Sınıflar
 
-Handcrafted short Turkish sentences, labeled in 3 real-world categories.  
-Dataset is included directly in `data.py` or inline in the notebook.
+- 🧠 **Kişisel Gelişim** (`kişisel gelişim`)  
+- 🏡 **Günlük Yaşam** (`günlük yaşam`)  
+- 📢 **Talep / Şikayet** (`talep/şikayet`)  
 
 ---
 
-## 🛠 Installation
+## 🚀 Özellikler
+
+✅ Türkçe’ye özel stopword listesi  
+✅ TF‑IDF + N‑gram desteği (unigram + bigram)  
+✅ Naive Bayes, Lojistik Regresyon ve Karar Ağacı ile model eğitimi  
+✅ GridSearchCV ile hiperparametre optimizasyonu  
+✅ `.pkl` uzantılı model ve encoder dosyaları ile model kaydı  
+✅ Streamlit üzerinden web tabanlı arayüz
+
+---
+
+## 🧠 Veri Seti
+
+El yapımı kısa Türkçe cümlelerden oluşur ve 3 farklı kategoriye etiketlenmiştir.  
+Veri seti doğrudan notebook içinde ya da `data.py` dosyasının içinde bulunmaktadır.
+
+---
+
+## 🛠️ Kurulum
 
 ```bash
-git clone https://github.com/username/turkish-text-classifier.git
-cd turkish-text-classifier
+git clone https://github.com/CelkMehmett/TF-IDF--2.git
+cd TF-IDF--2
 pip install -r requirements.txt
+```
+
+Streamlit arayüzünü başlatmak için:
+
+```bash
+streamlit run streamlit_app.py
+```
 
 ---
 
-## 📸 Uygulama Ekran Görüntüsü
+## 💻 Uygulama Arayüzü
 
-![Streamlit Demo](demo.png)
+Aşağıdaki örnek arayüz ile bir cümleyi yazıp tahmini sınıfı görebilirsiniz.
 
+<div align="center">
+  <img src="demo.png" width="800"/>
+</div>
 
+---
+
+## 🧠 Model Kullanımı (Python içinden)
+
+```python
+import joblib
+
+# Model ve LabelEncoder yükle
+model = joblib.load("tfidf_tr_model.pkl")
+le = joblib.load("label_encoder.pkl")
+
+# Tahmin yap
+text = ["Bugün çok yoruldum ama hedeflerimi unutmadım."]
+pred = model.predict(text)
+print("Tahmin edilen sınıf:", le.inverse_transform(pred)[0])
+```
+
+---
+
+## 📁 Dosya Yapısı
+
+```
+TF-IDF--2/
+│
+├── TF_IDF_ile_Metin_Sınıflandırıcı_Yazmak__.ipynb   # Notebook dosyası
+├── streamlit_app.py                                  # Streamlit arayüzü
+├── tfidf_tr_model.pkl                                # Eğitimli model
+├── label_encoder.pkl                                 # Etiket çözücü
+├── demo.png                                          # Arayüz ekran görüntüsü
+├── README.md
+└── requirements.txt
+```
+
+---
+
+## 📌 Lisans
+
+Bu proje [MIT Lisansı](LICENSE) ile lisanslanmıştır.
+
+---
+
+## 🌐 Demo
+
+Görüntüle → [GitHub Proje Sayfası](https://github.com/CelkMehmett/TF-IDF--2)
+
+---
+
+## 🤝 Katkıda Bulun
+
+Katkı sağlamak isterseniz `fork` edip `pull request` gönderebilir veya hata bildirimi açabilirsiniz.
